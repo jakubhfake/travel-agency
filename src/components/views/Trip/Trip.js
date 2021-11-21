@@ -72,6 +72,7 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
 };
 
 Trip.propTypes = {
+
   name: PropTypes.string,
   image: PropTypes.string,
   cost: PropTypes.string,
