@@ -14,7 +14,7 @@ import {setMultipleStates} from './redux/globalRedux';
 import Trip from './components/views/Trip/TripContainer.js';
 import Country from './components/views/Country/CountryContainer.js';
 import {AnimatedSwitch} from 'react-router-transition';
-import styles from './styles/AnimatedSwitch.scss';
+import styles from './styles/AnimatedSwitch.module.scss';
 
 class App extends React.Component {
   static propTypes = {
