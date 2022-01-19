@@ -56,6 +56,7 @@ class App extends React.Component {
             <Route path='*' component={NotFound} />        
           </AnimatedSwitch>
           
+          
         </MainLayout>
       </BrowserRouter>
     );
