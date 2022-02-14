@@ -1,4 +1,5 @@
 /* SELECTORS */
+import {parseOptionPrice} from '../utils/parseOptionPrice';
 
 export const getAllTrips = ({trips}) => trips;
 
@@ -12,12 +13,20 @@ export const getFilteredTrips = ({trips, filters}) => {
   }
 
   // TODO - filter by duration
-  
+  if(filters.duration){
+    output = output.filter((trip) => trip.days >= parseInt(filters.duration.from) && trip.days <= parseInt(filters.duration.to));
+  }
+
   // TODO - filter by tags
+  if(filters.tags){
+    for(let tag of filters.tags){
+      output = output.filter((trip) => trip.tags.includes(tag));
+    }
+  }
   
   // TODO - sort by cost descending (most expensive goes first)
-
-  return output;
+  const descending = output.sort((a, b) => parseOptionPrice(b.cost).value - parseOptionPrice(a.cost).value);
+  return descending;
 };
 
 export const getTripById = ({trips}, tripId) => {
